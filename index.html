@@ -1,0 +1,15 @@
+<h1>Photography</h1>
+
+<div class="albums">
+
+    {% for album in site.albums %}
+
+    <a href="{{ album.url }}">
+        <div class="album">
+            <h2>{{ album.title }}</h2>
+        </div>
+    </a>
+
+    {% endfor %}
+
+</div>

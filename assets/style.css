@@ -1,0 +1,22 @@
+body{
+    background:#111;
+    color:white;
+    font-family:sans-serif;
+    margin:40px;
+}
+
+.albums{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:20px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:10px;
+}
+
+.gallery img{
+    width:100%;
+}
