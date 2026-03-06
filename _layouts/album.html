@@ -5,7 +5,7 @@
     {% assign files = site.static_files %}
 
     {% for file in files %}
-    {% if file.path contains page.dir and file.extname == ".jpg" %}
+    {% if file.path contains page.dir | append: "jpg/" and file.extname == ".jpg" %}
     <img src="{{ file.path }}">
     {% endif %}
     {% endfor %}
