@@ -7,12 +7,35 @@ title: Photography
 
     {% for album in site.albums %}
 
-    <a href="{{ album.url }}">
-        <div class="album">
+    <a class="stateless-link" href="{{ album.url }}">
+        <div class="album-preview">
             <h2>{{ album.title }}</h2>
+            <div class="slideshow">
+                {% assign preview_images = site.data[album.folder] %}
+                {% for image in preview_images %}
+                <img src="/albums/{{ album.folder }}/thumb/{{ image.filename }}">
+                {% endfor %}
+            </div>
         </div>
     </a>
 
     {% endfor %}
 
 </div>
+
+<script>
+    document.querySelectorAll('.slideshow').forEach(slideshow => {
+        const imgs = slideshow.querySelectorAll('img');
+        let index = 0;
+
+        // Initialize
+        imgs.forEach((img,i) => img.classList.remove('active'));
+        if (imgs.length > 0) imgs[0].classList.add('active');
+
+        setInterval(() => {
+            imgs[index].classList.remove('active');          // fade out current
+            index = (index + 1) % imgs.length;
+            imgs[index].classList.add('active');             // fade in next
+        }, 2500);  // change every 2.5 seconds
+    });
+</script>

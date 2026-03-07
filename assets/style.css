@@ -30,6 +30,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
 .download-btn {
     display: inline-block;
     padding: 0.5em 1em;
@@ -47,4 +48,34 @@ body {
 
 .site-title {
     color: white;
+}
+
+.slideshow {
+    position: relative;
+    width: 300px;   /* adjust to your preview size */
+    height: 200px;
+    overflow: hidden;
+}
+
+.slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* smooth fade */
+}
+.slideshow img.active {
+    opacity: 1;
+}
+
+.stateless-link {
+    color: white;
+}
+
+.album-preview h2 {
+    line-height: 1.2em;
+    min-height: 2.4em;
+    max-height: 2.4em;
 }
