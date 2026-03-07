@@ -5,13 +5,23 @@ title: Album
 
 <h1>{{ page.title }}</h1>
 
-<div class="gallery">
+<div class="gallery" id="gallery">
 
-    {% assign files = site.static_files %}
+    {% assign jpg_path = page.dir | append: "jpg/" %}
+    {% assign images = site.static_files | where_exp: "file", "file.path contains jpg_path" | sort: "path" %}
 
-    {% for file in files %}
-    {% if file.path contains page.dir | append: "jpg/" and file.extname == ".jpg" %}
-    <img src="{{ file.path }}">
+    {% for file in images %}
+    {% assign ext = file.extname | downcase %}
+    {% if ext == ".jpg" %}
+
+    <a
+            href="{{ file.path }}"
+            data-pswp-width="2000"
+            data-pswp-height="1333"
+    >
+        <img src="{{ file.path }}">
+    </a>
+
     {% endif %}
     {% endfor %}
 

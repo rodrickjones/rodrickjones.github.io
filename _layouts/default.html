@@ -1,0 +1,58 @@
+---
+title: Default
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ page.title }} | {{ site.title }}</title>
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/photoswipe/photoswipe.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>
+        <a href="/">{{ site.title }}</a>
+    </h1>
+
+</header>
+
+<main>
+
+    {{ content }}
+
+</main>
+
+<footer>
+
+    <p>© {{ site.time | date: "%Y" }}</p>
+
+</footer>
+
+<script type="module">
+
+    import PhotoSwipeLightbox from '/assets/photoswipe/photoswipe-lightbox.esm.js';
+
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: '#gallery',
+        children: 'a',
+        pswpModule: () => import('/assets/photoswipe/photoswipe.esm.js')
+    });
+
+    lightbox.init();
+
+</script>
+
+</body>
+
+</html>
+
