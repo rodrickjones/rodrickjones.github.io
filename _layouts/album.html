@@ -2,27 +2,26 @@
 layout: default
 title: Album
 ---
-
 <h1>{{ page.title }}</h1>
 
 <div class="gallery" id="gallery">
+    {% assign thumb_path = '/albums/' | append: page.folder | append: '/thumb/' %}
+    {% assign web_path   = '/albums/' | append: page.folder | append: '/web/' %}
+    {% assign jpg_path   = '/albums/' | append: page.folder | append: '/jpg/' %}
+    {% assign images_meta = site.data[page.folder] %}
 
-    {% assign jpg_path = page.dir | append: "jpg/" %}
-    {% assign images = site.static_files | where_exp: "file", "file.path contains jpg_path" | sort: "path" %}
+    {% for image in images_meta %}
 
-    {% for file in images %}
-    {% assign ext = file.extname | downcase %}
-    {% if ext == ".jpg" %}
+    {% assign thumb = thumb_path | append: image.filename %}
+    {% assign web   = web_path   | append: image.filename %}
+    {% assign jpg   = jpg_path   | append: image.filename %}
+    <div class="image-card">
+        <a href="{{ web }}" data-pswp-width="{{ image.width  }}" data-pswp-height="{{ image.height }}">
+            <img src="{{ thumb }}" loading="lazy">
+        </a>
+        <p><a class="download-btn" href="{{ jpg }}" download>Download</a></p>
+    </div>
 
-    <a
-            href="{{ file.path }}"
-            data-pswp-width="2000"
-            data-pswp-height="1333"
-    >
-        <img src="{{ file.path }}">
-    </a>
-
-    {% endif %}
     {% endfor %}
 
 </div>
