@@ -1,28 +1,28 @@
 body {
-    background:#111;
-    color:white;
-    font-family:sans-serif;
-    margin:40px;
+    background: #111;
+    color: white;
+    font-family: sans-serif;
+    margin: 40px;
 }
 
 .albums {
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-    gap:20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .gallery {
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-    gap:12px;
+    display: grid;
+    grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
+    gap: 12px;
 }
 
 .gallery img {
     max-width: 100%;
     height: auto;  /* preserves aspect ratio */
-    object-fit:cover;
-    border-radius:6px;
-    cursor:pointer;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .image-card {
@@ -52,9 +52,8 @@ body {
 
 .slideshow {
     position: relative;
-    width: 300px;   /* adjust to your preview size */
-    height: 200px;
     overflow: hidden;
+    aspect-ratio: 1 / 1;
 }
 
 .slideshow img {
@@ -64,8 +63,10 @@ body {
     width: 100%;
     height: 100%;
     opacity: 0;
+    object-fit: cover;
     transition: opacity 1s ease-in-out; /* smooth fade */
 }
+
 .slideshow img.active {
     opacity: 1;
 }
