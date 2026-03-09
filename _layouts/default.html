@@ -8,11 +8,13 @@ title: Default
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
 
     <title>{{ page.title }} | {{ site.title }}</title>
 
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="stylesheet" href="/assets/photoswipe/photoswipe.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
 
@@ -20,16 +22,16 @@ title: Default
 
 <header>
 
-    <h1>
-        <a class="site-title" href="/">{{ site.title }}</a>
+    <h1 style="text-align: center">
+        <a href="/">{{ site.title }}</a>
     </h1>
 
 </header>
 
 <main>
-
+<div class="container">
     {{ content }}
-
+</div>
 </main>
 
 <footer>
