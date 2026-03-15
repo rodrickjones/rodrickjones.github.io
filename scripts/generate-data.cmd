@@ -1,0 +1,1 @@
+magick identify -format "- filename: %f\n  width: %w\n  height: %h\n" web/* > data.yml
